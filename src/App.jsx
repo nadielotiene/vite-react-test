@@ -1,34 +1,61 @@
+import React from "react"
+import './style.css'
+import iconData from "./iconData"
+import data from "./data"
+import Navbar from "./components/Navbar"
+import Hero from "./components/Hero"
+import Card from "./components/Card"
+import Footer from "./components/Footer"
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [heart, setHeart] = useState({
+    isFavorite: false
+  })
+
+  let heartIcon = heart.isFavorite ? "heart-full.png" : "heart-empty.png"
+
+  function toggleFavorite() {
+    setHeart(prevState => ({
+      ...prevState,
+      isFavorite: !prevState.isFavorite
+    }))
+  }
+
+  const cards = data.map(place => {
+    return (
+      <Card
+        key={place.id}
+        {...place}
+        toggleClick={toggleFavorite}
+        heartIcon={heartIcon}
+      />
+    )
+  })
+
+  const hero = iconData.map(icon => {
+    return (
+      <Hero
+        key={icon.id}
+        {...icon}
+      />
+    )
+  })
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <>
+    <Navbar />
+      <section className="hero-section">
+        {hero}
+      </section>
+      <section className="cards-list">
+        {cards}
+        {cards}
+        {cards}
+        {cards}
+        {cards}
+      </section>
+      <Footer />
+    </>
   )
 }
-
-export default App
