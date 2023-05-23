@@ -1,6 +1,6 @@
 import React from "react"
 import './style.css'
-import iconData from "./iconData"
+import iconData from "./iconData.js"
 import data from "./data"
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
@@ -13,7 +13,7 @@ export default function App() {
     isFavorite: false
   })
 
-  let heartIcon = heart.isFavorite ? "heart-full.png" : "heart-empty.png"
+  let heartIcon = heart.isFavorite ? "./heart-full.png" : "./heart-empty.png"
 
   function toggleFavorite() {
     setHeart(prevState => ({
