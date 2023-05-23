@@ -13,7 +13,7 @@ export default function App() {
     isFavorite: false
   })
 
-  let heartIcon = heart.isFavorite ? "./heart-full.png" : "./heart-empty.png"
+  let heartIcon = heart.isFavorite ? "heart-full.png" : "heart-empty.png"
 
   function toggleFavorite() {
     setHeart(prevState => ({
