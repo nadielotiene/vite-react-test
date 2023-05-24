@@ -1,4 +1,5 @@
 import React from "react"
+import globe from "/globe.png"
 
 export default function Footer() {
     return (
@@ -11,7 +12,7 @@ export default function Footer() {
             <small>
                 <a className="footer-info-right" href="#">
                     <img 
-                        className="globe" src="../public/globe.png" alt="globe" 
+                        className="globe" src={globe} alt="globe" 
                     />
                     English (US) • $ USD • Support & resources
                 </a>
