@@ -1,6 +1,4 @@
 import React from "react"
-import heartFull from "/heart-full.png"
-import heartEmpty from "/heart-empty.png"
 
 export default function Card(props) {
     return (
